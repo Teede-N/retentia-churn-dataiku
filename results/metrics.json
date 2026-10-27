@@ -1,0 +1,737 @@
+{
+  "quality": {
+    "rows": 7043,
+    "columns": 21,
+    "duplicates_customerID": 0,
+    "blank_TotalCharges": 11,
+    "blank_TotalCharges_all_tenure_0": true
+  },
+  "base_churn_rate": 0.2654,
+  "base_churn_rate_ci95": [
+    0.2552,
+    0.2758
+  ],
+  "bivariate": {
+    "categorical": {
+      "gender": {
+        "chi2": 0.5224,
+        "dof": 1,
+        "p_value": 0.4698,
+        "cramers_v": 0.0086,
+        "levels": {
+          "Female": {
+            "n": 3488,
+            "churn_rate": 0.2692,
+            "ci95": [
+              0.2547,
+              0.2842
+            ]
+          },
+          "Male": {
+            "n": 3555,
+            "churn_rate": 0.2616,
+            "ci95": [
+              0.2474,
+              0.2763
+            ]
+          }
+        }
+      },
+      "SeniorCitizen": {
+        "chi2": 160.3521,
+        "dof": 1,
+        "p_value": 9.48e-37,
+        "cramers_v": 0.1509,
+        "levels": {
+          "No": {
+            "n": 5901,
+            "churn_rate": 0.2361,
+            "ci95": [
+              0.2254,
+              0.2471
+            ]
+          },
+          "Yes": {
+            "n": 1142,
+            "churn_rate": 0.4168,
+            "ci95": [
+              0.3885,
+              0.4456
+            ]
+          }
+        }
+      },
+      "Partner": {
+        "chi2": 159.4145,
+        "dof": 1,
+        "p_value": 1.52e-36,
+        "cramers_v": 0.1504,
+        "levels": {
+          "No": {
+            "n": 3641,
+            "churn_rate": 0.3296,
+            "ci95": [
+              0.3145,
+              0.345
+            ]
+          },
+          "Yes": {
+            "n": 3402,
+            "churn_rate": 0.1966,
+            "ci95": [
+              0.1836,
+              0.2103
+            ]
+          }
+        }
+      },
+      "Dependents": {
+        "chi2": 189.9403,
+        "dof": 1,
+        "p_value": 3.28e-43,
+        "cramers_v": 0.1642,
+        "levels": {
+          "No": {
+            "n": 4933,
+            "churn_rate": 0.3128,
+            "ci95": [
+              0.3,
+              0.3259
+            ]
+          },
+          "Yes": {
+            "n": 2110,
+            "churn_rate": 0.1545,
+            "ci95": [
+              0.1397,
+              0.1706
+            ]
+          }
+        }
+      },
+      "PhoneService": {
+        "chi2": 1.0044,
+        "dof": 1,
+        "p_value": 0.3162,
+        "cramers_v": 0.0119,
+        "levels": {
+          "No": {
+            "n": 682,
+            "churn_rate": 0.2493,
+            "ci95": [
+              0.2183,
+              0.2831
+            ]
+          },
+          "Yes": {
+            "n": 6361,
+            "churn_rate": 0.2671,
+            "ci95": [
+              0.2564,
+              0.2781
+            ]
+          }
+        }
+      },
+      "MultipleLines": {
+        "chi2": 11.3304,
+        "dof": 2,
+        "p_value": 0.0035,
+        "cramers_v": 0.0401,
+        "levels": {
+          "No": {
+            "n": 3390,
+            "churn_rate": 0.2504,
+            "ci95": [
+              0.2361,
+              0.2653
+            ]
+          },
+          "No phone service": {
+            "n": 682,
+            "churn_rate": 0.2493,
+            "ci95": [
+              0.2183,
+              0.2831
+            ]
+          },
+          "Yes": {
+            "n": 2971,
+            "churn_rate": 0.2861,
+            "ci95": [
+              0.2701,
+              0.3026
+            ]
+          }
+        }
+      },
+      "InternetService": {
+        "chi2": 732.3096,
+        "dof": 2,
+        "p_value": 9.57e-160,
+        "cramers_v": 0.3225,
+        "levels": {
+          "DSL": {
+            "n": 2421,
+            "churn_rate": 0.1896,
+            "ci95": [
+              0.1745,
+              0.2057
+            ]
+          },
+          "Fiber optic": {
+            "n": 3096,
+            "churn_rate": 0.4189,
+            "ci95": [
+              0.4017,
+              0.4364
+            ]
+          },
+          "No": {
+            "n": 1526,
+            "churn_rate": 0.074,
+            "ci95": [
+              0.062,
+              0.0883
+            ]
+          }
+        }
+      },
+      "OnlineSecurity": {
+        "chi2": 849.999,
+        "dof": 2,
+        "p_value": 2.66e-185,
+        "cramers_v": 0.3474,
+        "levels": {
+          "No": {
+            "n": 3498,
+            "churn_rate": 0.4177,
+            "ci95": [
+              0.4014,
+              0.4341
+            ]
+          },
+          "No internet service": {
+            "n": 1526,
+            "churn_rate": 0.074,
+            "ci95": [
+              0.062,
+              0.0883
+            ]
+          },
+          "Yes": {
+            "n": 2019,
+            "churn_rate": 0.1461,
+            "ci95": [
+              0.1314,
+              0.1622
+            ]
+          }
+        }
+      },
+      "OnlineBackup": {
+        "chi2": 601.8128,
+        "dof": 2,
+        "p_value": 2.08e-131,
+        "cramers_v": 0.2923,
+        "levels": {
+          "No": {
+            "n": 3088,
+            "churn_rate": 0.3993,
+            "ci95": [
+              0.3821,
+              0.4167
+            ]
+          },
+          "No internet service": {
+            "n": 1526,
+            "churn_rate": 0.074,
+            "ci95": [
+              0.062,
+              0.0883
+            ]
+          },
+          "Yes": {
+            "n": 2429,
+            "churn_rate": 0.2153,
+            "ci95": [
+              0.1994,
+              0.2321
+            ]
+          }
+        }
+      },
+      "DeviceProtection": {
+        "chi2": 558.4194,
+        "dof": 2,
+        "p_value": 5.51e-122,
+        "cramers_v": 0.2816,
+        "levels": {
+          "No": {
+            "n": 3095,
+            "churn_rate": 0.3913,
+            "ci95": [
+              0.3742,
+              0.4086
+            ]
+          },
+          "No internet service": {
+            "n": 1526,
+            "churn_rate": 0.074,
+            "ci95": [
+              0.062,
+              0.0883
+            ]
+          },
+          "Yes": {
+            "n": 2422,
+            "churn_rate": 0.225,
+            "ci95": [
+              0.2088,
+              0.2421
+            ]
+          }
+        }
+      },
+      "TechSupport": {
+        "chi2": 828.1971,
+        "dof": 2,
+        "p_value": 1.44e-180,
+        "cramers_v": 0.3429,
+        "levels": {
+          "No": {
+            "n": 3473,
+            "churn_rate": 0.4164,
+            "ci95": [
+              0.4001,
+              0.4328
+            ]
+          },
+          "No internet service": {
+            "n": 1526,
+            "churn_rate": 0.074,
+            "ci95": [
+              0.062,
+              0.0883
+            ]
+          },
+          "Yes": {
+            "n": 2044,
+            "churn_rate": 0.1517,
+            "ci95": [
+              0.1368,
+              0.1679
+            ]
+          }
+        }
+      },
+      "StreamingTV": {
+        "chi2": 374.2039,
+        "dof": 2,
+        "p_value": 5.53e-82,
+        "cramers_v": 0.2305,
+        "levels": {
+          "No": {
+            "n": 2810,
+            "churn_rate": 0.3352,
+            "ci95": [
+              0.318,
+              0.3529
+            ]
+          },
+          "No internet service": {
+            "n": 1526,
+            "churn_rate": 0.074,
+            "ci95": [
+              0.062,
+              0.0883
+            ]
+          },
+          "Yes": {
+            "n": 2707,
+            "churn_rate": 0.3007,
+            "ci95": [
+              0.2837,
+              0.3182
+            ]
+          }
+        }
+      },
+      "StreamingMovies": {
+        "chi2": 375.6615,
+        "dof": 2,
+        "p_value": 2.67e-82,
+        "cramers_v": 0.231,
+        "levels": {
+          "No": {
+            "n": 2785,
+            "churn_rate": 0.3368,
+            "ci95": [
+              0.3195,
+              0.3546
+            ]
+          },
+          "No internet service": {
+            "n": 1526,
+            "churn_rate": 0.074,
+            "ci95": [
+              0.062,
+              0.0883
+            ]
+          },
+          "Yes": {
+            "n": 2732,
+            "churn_rate": 0.2994,
+            "ci95": [
+              0.2825,
+              0.3169
+            ]
+          }
+        }
+      },
+      "Contract": {
+        "chi2": 1184.5966,
+        "dof": 2,
+        "p_value": 5.86e-258,
+        "cramers_v": 0.4101,
+        "levels": {
+          "Month-to-month": {
+            "n": 3875,
+            "churn_rate": 0.4271,
+            "ci95": [
+              0.4116,
+              0.4427
+            ]
+          },
+          "One year": {
+            "n": 1473,
+            "churn_rate": 0.1127,
+            "ci95": [
+              0.0975,
+              0.1299
+            ]
+          },
+          "Two year": {
+            "n": 1695,
+            "churn_rate": 0.0283,
+            "ci95": [
+              0.0214,
+              0.0373
+            ]
+          }
+        }
+      },
+      "PaperlessBilling": {
+        "chi2": 259.161,
+        "dof": 1,
+        "p_value": 2.61e-58,
+        "cramers_v": 0.1918,
+        "levels": {
+          "No": {
+            "n": 2872,
+            "churn_rate": 0.1633,
+            "ci95": [
+              0.1502,
+              0.1773
+            ]
+          },
+          "Yes": {
+            "n": 4171,
+            "churn_rate": 0.3357,
+            "ci95": [
+              0.3215,
+              0.3501
+            ]
+          }
+        }
+      },
+      "PaymentMethod": {
+        "chi2": 648.1423,
+        "dof": 3,
+        "p_value": 3.68e-140,
+        "cramers_v": 0.3034,
+        "levels": {
+          "Bank transfer (automatic)": {
+            "n": 1544,
+            "churn_rate": 0.1671,
+            "ci95": [
+              0.1493,
+              0.1865
+            ]
+          },
+          "Credit card (automatic)": {
+            "n": 1522,
+            "churn_rate": 0.1524,
+            "ci95": [
+              0.1352,
+              0.1714
+            ]
+          },
+          "Electronic check": {
+            "n": 2365,
+            "churn_rate": 0.4529,
+            "ci95": [
+              0.4329,
+              0.473
+            ]
+          },
+          "Mailed check": {
+            "n": 1612,
+            "churn_rate": 0.1911,
+            "ci95": [
+              0.1726,
+              0.211
+            ]
+          }
+        }
+      }
+    },
+    "numeric": {
+      "tenure": {
+        "median_churn": 10.0,
+        "median_stay": 38.0,
+        "mannwhitney_U": 2515538.0,
+        "p_value": 2.42e-208,
+        "rank_biserial": 0.4797
+      },
+      "MonthlyCharges": {
+        "median_churn": 79.65,
+        "median_stay": 64.425,
+        "mannwhitney_U": 6003125.5,
+        "p_value": 3.31e-54,
+        "rank_biserial": -0.2416
+      },
+      "TotalCharges": {
+        "median_churn": 703.55,
+        "median_stay": 1679.525,
+        "mannwhitney_U": 3381224.0,
+        "p_value": 5.69e-83,
+        "rank_biserial": 0.3007
+      }
+    }
+  },
+  "tenure_buckets": {
+    "0-6": {
+      "n": 1481,
+      "churn_rate": 0.5294
+    },
+    "7-12": {
+      "n": 705,
+      "churn_rate": 0.3589
+    },
+    "13-24": {
+      "n": 1024,
+      "churn_rate": 0.2871
+    },
+    "25-48": {
+      "n": 1594,
+      "churn_rate": 0.2039
+    },
+    "49-72": {
+      "n": 2239,
+      "churn_rate": 0.0951
+    }
+  },
+  "logit": {
+    "pseudo_r2_mcfadden": 0.2744,
+    "n": 7043,
+    "coefficients": {
+      "contract_one_year": {
+        "odds_ratio": 0.5088,
+        "ci95": [
+          0.4139,
+          0.6256
+        ],
+        "p_value": 1.44e-10
+      },
+      "contract_two_year": {
+        "odds_ratio": 0.2566,
+        "ci95": [
+          0.1827,
+          0.3603
+        ],
+        "p_value": 4.03e-15
+      },
+      "internet_fiber": {
+        "odds_ratio": 1.6767,
+        "ci95": [
+          1.2735,
+          2.2075
+        ],
+        "p_value": 0.00023
+      },
+      "internet_none": {
+        "odds_ratio": 0.4609,
+        "ci95": [
+          0.3414,
+          0.6221
+        ],
+        "p_value": 4.18e-07
+      },
+      "payment_electronic_check": {
+        "odds_ratio": 1.4867,
+        "ci95": [
+          1.2999,
+          1.7004
+        ],
+        "p_value": 7.16e-09
+      },
+      "paperless_billing": {
+        "odds_ratio": 1.4525,
+        "ci95": [
+          1.2577,
+          1.6774
+        ],
+        "p_value": 3.74e-07
+      },
+      "tech_support": {
+        "odds_ratio": 0.6782,
+        "ci95": [
+          0.5707,
+          0.8059
+        ],
+        "p_value": 1.02e-05
+      },
+      "online_security": {
+        "odds_ratio": 0.6322,
+        "ci95": [
+          0.5349,
+          0.7473
+        ],
+        "p_value": 7.65e-08
+      },
+      "senior": {
+        "odds_ratio": 1.3244,
+        "ci95": [
+          1.1265,
+          1.5571
+        ],
+        "p_value": 0.00067
+      },
+      "tenure_per_year": {
+        "odds_ratio": 0.6835,
+        "ci95": [
+          0.6503,
+          0.7184
+        ],
+        "p_value": 1.14e-50
+      },
+      "monthly_charges_per_10": {
+        "odds_ratio": 1.1151,
+        "ci95": [
+          1.0457,
+          1.1891
+        ],
+        "p_value": 0.000893
+      }
+    }
+  },
+  "cv": {
+    "Régression logistique": {
+      "roc_auc_mean": 0.8462,
+      "roc_auc_std": 0.0126,
+      "pr_auc_mean": 0.6616,
+      "pr_auc_std": 0.0193,
+      "brier_mean": 0.135
+    },
+    "Forêt aléatoire": {
+      "roc_auc_mean": 0.8447,
+      "roc_auc_std": 0.009,
+      "pr_auc_mean": 0.656,
+      "pr_auc_std": 0.0189,
+      "brier_mean": 0.1356
+    },
+    "Gradient boosting": {
+      "roc_auc_mean": 0.8432,
+      "roc_auc_std": 0.0084,
+      "pr_auc_mean": 0.6534,
+      "pr_auc_std": 0.0201,
+      "brier_mean": 0.1366
+    }
+  },
+  "test": {
+    "Régression logistique": {
+      "roc_auc": 0.8422,
+      "pr_auc": 0.6349,
+      "brier": 0.138,
+      "gains": {
+        "top_10pct": {
+          "share_of_churners_captured": 0.2807,
+          "lift": 2.8075,
+          "precision": 0.7447
+        },
+        "top_20pct": {
+          "share_of_churners_captured": 0.4973,
+          "lift": 2.4866,
+          "precision": 0.6596
+        },
+        "top_30pct": {
+          "share_of_churners_captured": 0.6497,
+          "lift": 2.1658,
+          "precision": 0.5745
+        },
+        "top_50pct": {
+          "share_of_churners_captured": 0.8717,
+          "lift": 1.7433,
+          "precision": 0.4631
+        }
+      }
+    },
+    "Forêt aléatoire": {
+      "roc_auc": 0.8418,
+      "pr_auc": 0.6492,
+      "brier": 0.1366,
+      "gains": {
+        "top_10pct": {
+          "share_of_churners_captured": 0.2914,
+          "lift": 2.9144,
+          "precision": 0.773
+        },
+        "top_20pct": {
+          "share_of_churners_captured": 0.508,
+          "lift": 2.5401,
+          "precision": 0.6738
+        },
+        "top_30pct": {
+          "share_of_churners_captured": 0.6471,
+          "lift": 2.1569,
+          "precision": 0.5721
+        },
+        "top_50pct": {
+          "share_of_churners_captured": 0.8663,
+          "lift": 1.7326,
+          "precision": 0.4602
+        }
+      }
+    },
+    "Gradient boosting": {
+      "roc_auc": 0.8378,
+      "pr_auc": 0.6451,
+      "brier": 0.1385,
+      "gains": {
+        "top_10pct": {
+          "share_of_churners_captured": 0.2888,
+          "lift": 2.8877,
+          "precision": 0.766
+        },
+        "top_20pct": {
+          "share_of_churners_captured": 0.4893,
+          "lift": 2.4465,
+          "precision": 0.6489
+        },
+        "top_30pct": {
+          "share_of_churners_captured": 0.6444,
+          "lift": 2.148,
+          "precision": 0.5697
+        },
+        "top_50pct": {
+          "share_of_churners_captured": 0.8663,
+          "lift": 1.7326,
+          "precision": 0.4602
+        }
+      }
+    }
+  },
+  "test_size": 1409,
+  "test_churn_rate": 0.2654
+}
