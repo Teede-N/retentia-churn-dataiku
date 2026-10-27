@@ -8,6 +8,14 @@
 > **Question métier** : quels clients vont résilier leur abonnement, et **pourquoi** ?
 > **Réponse** : le type de contrat et l'ancienneté expliquent l'essentiel du risque. Un modèle simple et interprétable permet de capter **la moitié des départs en ne ciblant que 20 % des clients**.
 
+<p align="center">
+  <a href="#1-résumé-exécutif"><img src="https://img.shields.io/badge/📊_Résultats-en_1_minute-2a78d6?style=for-the-badge" alt="Résultats"></a>
+  <a href="analysis/churn_analysis.py"><img src="https://img.shields.io/badge/🐍_Code-Python-eb6834?style=for-the-badge" alt="Code"></a>
+  <a href="#9-reproduire-lanalyse"><img src="https://img.shields.io/badge/▶_Reproduire-15_secondes-1baf7a?style=for-the-badge" alt="Reproduire"></a>
+</p>
+
+<p align="center"><img src="figures/03_roc_gains.png" alt="Courbes ROC et courbe de gains" width="820"></p>
+
 Projet réalisé dans le cadre du Master Big Data & IA (**ESTIAM Lyon**). Le pipeline a été construit en groupe sous **Dataiku DSS** (Flow complet, de la donnée brute au modèle déployé, plus un dashboard). Ce dépôt contient en complément une **reproduction Python entièrement scriptée**, qui détaille la démarche statistique et rend chaque chiffre vérifiable.
 
 ---
@@ -107,14 +115,6 @@ $$\frac{\hat p + \frac{z^2}{2n} \pm z\sqrt{\frac{\hat p(1-\hat p)}{n} + \frac{z^
 | 1 an | 1 473 | 11,3 % | [9,8 % ; 13,0 %] |
 | 2 ans | 1 695 | **2,8 %** | [2,1 % ; 3,7 %] |
 
-```mermaid
-xychart-beta
-    title "Taux de churn selon le contrat (%)"
-    x-axis ["Mensuel", "1 an", "2 ans"]
-    y-axis "Churn (%)" 0 --> 50
-    bar [42.7, 11.3, 2.8]
-```
-
 Les intervalles ne se chevauchent pas : les différences sont **robustes**, pas un effet d'échantillonnage.
 
 ### 3.4 L'ancienneté : un risque concentré au début
@@ -127,13 +127,7 @@ Les intervalles ne se chevauchent pas : les différences sont **robustes**, pas 
 | 25 – 48 | 1 594 | 20,4 % |
 | 49 – 72 | 2 239 | **9,5 %** |
 
-```mermaid
-xychart-beta
-    title "Taux de churn selon l'ancienneté (%)"
-    x-axis ["0-6 mois", "7-12", "13-24", "25-48", "49-72"]
-    y-axis "Churn (%)" 0 --> 60
-    line [52.9, 35.9, 28.7, 20.4, 9.5]
-```
+![Taux de churn selon le contrat (IC de Wilson) et selon l'ancienneté](figures/01_contrat_anciennete.png)
 
 ### 3.5 Variables quantitatives
 
@@ -167,6 +161,8 @@ Un **odds ratio** (OR) inférieur à 1 protège du churn ; supérieur à 1, il l
 | Client senior | 1,32 | [1,13 ; 1,56] | $7 \times 10^{-4}$ |
 | Montant mensuel (par tranche de 10 \$) | 1,12 | [1,05 ; 1,19] | $9 \times 10^{-4}$ |
 
+![Odds ratios ajustés et intervalles de confiance à 95 %](figures/02_odds_ratios.png)
+
 *Pseudo-R² de McFadden = 0,27*. Une valeur entre 0,2 et 0,4 indique un très bon ajustement pour un modèle logistique.
 
 **Lecture**
@@ -197,6 +193,10 @@ Un **odds ratio** (OR) inférieur à 1 protège du churn ; supérieur à 1, il l
 
 *Référence : un classement au hasard donne ROC-AUC = 0,5 et PR-AUC = 0,265, soit le taux de churn.*
 
+<p align="center"><img src="figures/04_calibration.png" alt="Calibration des probabilités" width="480"></p>
+
+*Calibration : quand le modèle annonce 30 % de risque, environ 30 % de ces clients partent réellement. Les points suivent globalement la diagonale : les probabilités sont assez fiables pour piloter un budget de rétention.*
+
 **Conclusion statistique** : les écarts entre modèles (≤ 0,003 d'AUC) sont **bien inférieurs à un écart-type** de validation croisée. Ils ne sont pas significatifs. Selon le **principe de parcimonie**, on retient la **régression logistique** :
 
 - elle est aussi performante ;
@@ -218,16 +218,7 @@ Sur le jeu de test (régression logistique) :
 | 30 % | 65,0 % | ×2,2 | 57,4 % |
 | 50 % | 87,2 % | ×1,7 | 46,3 % |
 
-```mermaid
-xychart-beta
-    title "Courbe de gains (part des churners captés, %)"
-    x-axis "Clients ciblés (%)" [0, 10, 20, 30, 50, 100]
-    y-axis "Churners captés (%)" 0 --> 100
-    line [0, 28.1, 49.7, 65.0, 87.2, 100]
-    line [0, 10, 20, 30, 50, 100]
-```
-
-*La seconde courbe (diagonale) représente un ciblage au hasard.*
+![Courbes ROC des 3 modèles et courbe de gains](figures/03_roc_gains.png)
 
 > 🎯 En contactant **1 client sur 5**, l'équipe commerciale touche **1 départ sur 2**. Sans modèle, il faudrait contacter 2,5 fois plus de clients pour le même résultat.
 
@@ -265,8 +256,9 @@ mkdir -p data
 curl -L -o data/Telco-Customer-Churn.csv \
   https://raw.githubusercontent.com/IBM/telco-customer-churn-on-icp4d/master/data/Telco-Customer-Churn.csv
 
-# 3. Lancer l'analyse (≈ 15 s)
+# 3. Lancer l'analyse (≈ 15 s), puis générer les figures
 python analysis/churn_analysis.py data/Telco-Customer-Churn.csv
+python analysis/figures.py data/Telco-Customer-Churn.csv
 ```
 
 Tous les résultats ci-dessus sont produits par le script et enregistrés dans [`results/metrics.json`](results/metrics.json). Graine aléatoire fixée (`SEED = 42`) pour la reproductibilité.
@@ -276,7 +268,9 @@ Tous les résultats ci-dessus sont produits par le script et enregistrés dans [
 ```
 retentia-churn-dataiku/
 ├── analysis/
-│   └── churn_analysis.py   # qualité, tests, régression logistique, comparaison de modèles, gains
+│   ├── churn_analysis.py   # qualité, tests, régression logistique, comparaison de modèles, gains
+│   └── figures.py          # graphiques du README
+├── figures/                # 4 graphiques PNG
 ├── results/
 │   └── metrics.json        # tous les chiffres de ce README
 ├── requirements.txt
